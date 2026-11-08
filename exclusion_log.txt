@@ -1,0 +1,5 @@
+Rows in export: 18; exact duplicates removed: 0
+R01: reported 1 matches watched but 4 rated (flag, kept)
+R09: reported 2 matches watched but 4 rated (flag, kept)
+R10: reported 4 matches watched but 3 rated (flag, kept)
+Respondents with >=1 rating: 14; ratings: 38

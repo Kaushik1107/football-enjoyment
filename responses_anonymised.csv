@@ -1,0 +1,19 @@
+I follow one particular team regularly.,I would be disappointed if I missed my favourite team's match.,I follow football news and results even on days without matches.,How many football matches did you watch in the last 7 days?,Match 1: How much did you enjoy this match?,Match 1: How important was this match to you?,Match 1: Was your favourite team playing?,After match 1: Did you watch another match in the last 7 days?,Match 2: How much did you enjoy this match?,Match 2: How important was this match to you?,Match 2: Was your favourite team playing?,After match 2: Did you watch another match in the last 7 days?,Match 3: How much did you enjoy this match?,Match 3: How important was this match to you?,Match 3: Was your favourite team playing?,After match 3: Did you watch another match in the last 7 days?,Match 4: How much did you enjoy this match?,Match 4: How important was this match to you?,Match 4: Was your favourite team playing?,After match 4: Did you watch another match in the last 7 days?,Match 5: How much did you enjoy this match?,Match 5: How important was this match to you?,Match 5: Was your favourite team playing?,pid,engagement,group
+5,5,5,1.0,9.0,4.0,Yes,Yes,8.0,5.0,Yes,Yes,9.0,4.0,No,Yes,6.0,4.0,No,No,,,,R01,5.0,Highly engaged
+5,5,4,5.0,10.0,5.0,Yes,Yes,8.0,2.0,No,Yes,9.0,1.0,No,Yes,8.0,1.0,No,Yes,8.0,2.0,No,R02,4.666666666666667,Highly engaged
+5,3,2,1.0,8.0,5.0,Yes,No,,,,,,,,,,,,,,,,R03,3.3333333333333335,Casual / moderate
+4,4,3,1.0,9.0,3.0,Yes,No,,,,,,,,,,,,,,,,R04,3.6666666666666665,Casual / moderate
+4,3,4,2.0,5.0,2.0,No,Yes,5.0,3.0,No,No,,,,,,,,,,,,R05,3.6666666666666665,Casual / moderate
+5,3,4,2.0,6.0,4.0,Yes,Yes,4.0,4.0,Yes,No,,,,,,,,,,,,R06,4.0,Highly engaged
+5,4,3,0.0,,,,,,,,,,,,,,,,,,,,R07,4.0,Highly engaged
+5,5,4,1.0,6.0,3.0,Yes,No,,,,,,,,,,,,,,,,R08,4.666666666666667,Highly engaged
+5,5,5,2.0,9.0,5.0,Yes,Yes,10.0,5.0,Yes,Yes,6.0,5.0,Yes,Yes,8.0,5.0,Yes,No,,,,R09,5.0,Highly engaged
+5,5,5,4.0,6.0,3.0,No,Yes,5.0,3.0,Yes,Yes,9.0,4.0,Yes,No,,,,,,,,R10,5.0,Highly engaged
+1,2,1,2.0,10.0,4.0,Yes,Yes,8.0,5.0,No,No,,,,,,,,,,,,R11,1.3333333333333333,Casual / moderate
+3,2,4,0.0,,,,,,,,,,,,,,,,,,,,R12,3.0,Casual / moderate
+3,4,3,0.0,,,,,,,,,,,,,,,,,,,,R13,3.3333333333333335,Casual / moderate
+5,3,4,1.0,7.0,5.0,Yes,No,,,,,,,,,,,,,,,,R14,4.0,Highly engaged
+4,4,4,5.0,2.0,4.0,Yes,Yes,3.0,3.0,Yes,Yes,3.0,3.0,Yes,Yes,3.0,3.0,Yes,Yes,5.0,4.0,Yes,R15,4.0,Highly engaged
+2,3,4,5.0,8.0,3.0,Yes,Yes,6.0,4.0,No,Yes,7.0,4.0,No,Yes,7.0,4.0,Yes,Yes,8.0,4.0,Yes,R16,3.0,Casual / moderate
+4,4,5,0.0,,,,,,,,,,,,,,,,,,,,R17,4.333333333333333,Highly engaged
+3,2,1,2.0,8.0,1.0,I don't have one,Yes,5.0,1.0,I don't have one,No,,,,,,,,,,,,R18,2.0,Casual / moderate

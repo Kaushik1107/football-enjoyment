@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Does More Football Mean More Enjoyment?</title>
+<meta name="description" content="An independent behavioural-economics study of diminishing marginal utility in football viewing.">
+<style>
+:root{--bg:#f7f8f5;--ink:#16202a;--mute:#5b6773;--card:#fff;--line:#dfe3dc;--acc:#1f6f4a;--warn:#b42318;--warnbg:#fdecea}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1512;--ink:#e8eee9;--mute:#9aa7a0;--card:#17201b;--line:#2a362f;--acc:#5cc296;--warn:#ff8a7a;--warnbg:#3a1a16}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+header{padding:56px 0 24px;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(30px,6vw,46px);line-height:1.15;margin:0 0 12px}
+h2{font-size:26px;margin:0 0 6px}h3{font-size:18px;margin:22px 0 6px}
+.sub{color:var(--mute);font-size:18px}
+nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5;font-family:system-ui,sans-serif;font-size:14px}
+nav .wrap{display:flex;gap:18px;overflow-x:auto;padding:10px 20px}
+nav a{color:var(--mute);text-decoration:none;white-space:nowrap}nav a:hover{color:var(--acc)}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.num{font-family:system-ui,sans-serif;color:var(--acc);font-weight:700;font-size:13px;letter-spacing:.08em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:16px 0}
+.banner{display:none;background:var(--warnbg);color:var(--warn);border:2px solid var(--warn);font-family:system-ui,sans-serif;font-weight:600;padding:12px 16px;border-radius:10px;margin:18px 0}
+figure{margin:20px 0}figure img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#fff}
+figcaption{font-family:system-ui,sans-serif;font-size:14px;color:var(--mute);margin-top:6px}
+table{border-collapse:collapse;width:100%;font-family:system-ui,sans-serif;font-size:15px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;font-family:system-ui,sans-serif}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.stat b{display:block;font-size:26px;color:var(--acc)}.stat span{font-size:13px;color:var(--mute)}
+a{color:var(--acc)}code{font-size:14px;background:var(--card);padding:1px 5px;border-radius:4px}
+footer{padding:30px 0 60px;color:var(--mute);font-family:system-ui,sans-serif;font-size:14px}
+.todo{border:2px dashed var(--warn);padding:12px 16px;border-radius:10px;color:var(--warn);font-family:system-ui,sans-serif;font-size:15px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="num">INDEPENDENT BEHAVIOURAL ECONOMICS PROJECT</div>
+  <h1>Does More Football Mean More Enjoyment?</h1>
+  <p class="sub">A short empirical investigation of diminishing marginal utility in football viewing.</p>
+  <p class="sub" style="font-size:15px">By <!-- TODO: your name -->[Your name] · <span id="date">[Month Year]</span></p>
+  <div class="banner" id="demoBanner">⚠ DEMONSTRATION DATA. Every number and chart on this page currently comes from synthetic, computer-generated responses used to test the website. They are NOT real findings.</div>
+</div></header>
+<nav><div class="wrap"><a href="#question">1 Question</a><a href="#findings">2 Findings</a><a href="#method">3 Data &amp; method</a><a href="#code">4 Analysis</a><a href="#conclusion">5 Conclusions</a></div></nav>
+
+<main class="wrap">
+<section id="question"><div class="num">01</div><h2>Research question</h2>
+<p><strong>Does the enjoyment people get from watching football fall as they watch more matches, and is the pattern different for highly engaged fans and casual viewers?</strong></p>
+<h3>The economics in one minute</h3>
+<p><em>Utility</em> is satisfaction. <em>Marginal utility</em> is the extra satisfaction from one more unit: here, one more match. The law of <em>diminishing marginal utility</em> says each extra unit usually adds less than the one before. Football is an interesting test because a passionate fan might not follow the rule: anticipation, loyalty, rivalries and the importance of a particular fixture can keep enjoyment high.</p>
+<div class="card"><strong>H1.</strong> Within a person, reported enjoyment declines with the order in which matches are watched in a 7-day window.<br>
+<strong>H2.</strong> The decline is smaller for highly engaged fans.<br>
+<strong>Robustness.</strong> H1 should survive controlling for match importance and whether the viewer's favourite team played.</div>
+</section>
+
+<section id="findings"><div class="num">02</div><h2>Findings</h2>
+<div class="stats" id="stats"></div>
+<p id="h1text"></p>
+<figure><img src="charts/1_enjoyment_by_order.png" alt="Mean enjoyment by match order with 95% confidence intervals, split by engagement group"><figcaption>Average enjoyment of the 1st, 2nd, … match watched, by engagement group. Bars are 95% confidence intervals; later positions have fewer respondents.</figcaption></figure>
+<figure><img src="charts/2_slope_distribution.png" alt="Histogram of per-person slopes"><figcaption>For each person with two or more rated matches: the change in enjoyment per extra match. Left of zero = enjoyment fell.</figcaption></figure>
+<p id="h2text"></p>
+<figure><img src="charts/3_slope_by_engagement.png" alt="Mean slope by engagement group"><figcaption>Average within-person slope for highly engaged fans and casual/moderate viewers, with 95% confidence intervals.</figcaption></figure>
+<h3>Average enjoyment by match position</h3><table id="pos"></table>
+<h3>Robustness: controlling for match importance and favourite team</h3>
+<table id="fe"></table>
+<figure><img src="charts/4_viewing_frequency.png" alt="Bar chart of matches watched"><figcaption>How many matches respondents watched in the previous 7 days.</figcaption></figure>
+</section>
+
+<section id="method"><div class="num">03</div><h2>Data and methodology</h2>
+<p><strong>Sample:</strong> <span id="nSample">n</span>. <span class="todo" style="display:inline">TODO: describe honestly how participants were recruited (e.g. school group chat, online football community), dates open, who is not represented.</span></p>
+<p><strong>Questionnaire:</strong> three engagement items (1-5 agreement), the number of matches watched in the previous 7 days, and for each match in order watched (up to five): enjoyment (1-10), importance (1-5) and whether the respondent's favourite team played. Anonymous; no names or emails collected. <a href="survey_questions.md">Full questionnaire</a>.</p>
+<p><strong>Variables:</strong> <em>order</em> = position of the match in the respondent's week; <em>enjoyment</em> = self-rated 1-10 (proxy for marginal utility); <em>engagement</em> = mean of three items, "highly engaged" ≥ <span id="cut">4.0</span> (set before analysis).</p>
+<p><strong>Cleaning:</strong> exact duplicates removed; respondents with no matches have no ratings; ratings outside 1-10 dropped. Full log in <a href="exclusion_log.txt">exclusion_log.txt</a>.</p>
+<p><a href="responses_anonymised.csv"><strong>Download the anonymised dataset (CSV)</strong></a></p>
+<h3>Limitations</h3>
+<ul><li>Self-reported ratings from memory (recall bias).</li><li>Convenience sample, not representative of all football fans.</li><li>Small sample, so wide uncertainty at later match positions.</li><li>Survey data show association, not causation: a fall in enjoyment could reflect match quality, fatigue or the order in which people chose to watch.</li></ul>
+</section>
+
+<section id="code"><div class="num">04</div><h2>Reproducible analysis</h2>
+<p>All statistics and charts on this page are produced by one script. To reproduce: <code>pip install pandas numpy scipy matplotlib</code> then <code>python analysis/analyze.py data/responses.csv</code>.</p>
+<ul><li>Mean enjoyment by match order with t-based 95% CIs.</li><li>Per-person OLS slope of enjoyment on match order; one-sample t-test and Wilcoxon signed-rank test against 0.</li><li>H2: Welch t-test, Mann-Whitney test and bootstrap CI (5,000 resamples) for the difference in mean slopes between groups. With so few people, H1 is also checked with a sign-flip permutation test.</li><li>Robustness: person fixed-effects regression with cluster-robust standard errors, controlling for importance and favourite-team flag.</li></ul>
+<p><a href="analysis/analyze.py">analysis/analyze.py</a> · <a href="https://github.com/">[link to your GitHub repository]</a></p>
+</section>
+
+<section id="conclusion"><div class="num">05</div><h2>Conclusions and implications</h2>
+<div id="concTodo"><p><strong>Draft, edit in your own words.</strong> This study does not find reliable evidence of diminishing marginal utility in football viewing. Average enjoyment dips from the first to the second match (7.4 to 6.2) but then recovers, so there is no monotonic decline. The average within-person slope is negative (about -0.67 points per extra match), but with ten people its confidence interval comfortably includes zero.</p>
+<p>H2 is directionally consistent (highly engaged fans declined less) but the intervals overlap massively, so it is inconclusive, not confirmed.</p>
+<p>The clearest result is not about order at all: matches involving the respondent's favourite team were rated about 1.2 points higher within the same person, and this survived the cluster-robust interval. <em>Who is playing</em> appears to matter more than <em>how many matches came before</em>. That is itself an economic point: utility from a match depends on the match's attributes, not just cumulative consumption.</p>
+<p><strong>What this cannot show:</strong> causation, representativeness, or true utility (enjoyment is a self-report). Three respondents gave a stated match count that disagrees with the number of matches they rated, which signals measurement noise. <strong>Next steps:</strong> a larger sample (50+ people with 2+ matches), a diary design that records enjoyment right after each match, and matches of comparable importance.</p></div>
+</section>
+</main>
+<footer><div class="wrap">Independent student project. Data collected via anonymous survey.</div></footer>
+
+<script src="results.js"></script>
+<script>
+const R = window.RESULTS || {};
+const f = (x,d=2)=> (x===undefined||x===null||isNaN(x))?"n/a":Number(x).toFixed(d);
+const pf = p => p<0.001?"p < 0.001":"p = "+f(p,3);
+document.getElementById("date").textContent = new Date().toLocaleDateString("en-GB",{month:"long",year:"numeric"});
+if (R.demo) { document.getElementById("demoBanner").style.display="block"; document.title = "[DEMO] "+document.title; }
+document.getElementById("cut").textContent = f(R.high_engagement_cutoff,1);
+document.getElementById("nSample").textContent = `${R.n_respondents} respondents, ${R.n_with_ratings} with at least one rated match` + (R.demo?" (synthetic demo sample)":"");
+const stat=(v,l)=>`<div class="stat"><b>${v}</b><span>${l}</span></div>`;
+document.getElementById("stats").innerHTML = stat(R.n_respondents,"respondents")+stat(R.n_with_ratings,"rated ≥1 match")+stat(R.n_slope,"with ≥2 matches (slope)")+(R.H1?stat(f(R.H1.mean_slope),"mean change per extra match"):"");
+const sentence = (h)=>{ if(!h) return "Not enough data yet."; const lo=h.lo, hi=h.hi;
+  const d = hi<0 ? "decline" : lo>0 ? "increase" : "no clear change (the confidence interval includes zero)";
+  return d; };
+if (R.H1){ const h=R.H1, d=sentence(h);
+  document.getElementById("h1text").innerHTML = `<strong>H1.</strong> Among ${R.n_slope} respondents with two or more rated matches, the average change in enjoyment per extra match was <strong>${f(h.mean_slope)}</strong> points (95% CI ${f(h.lo)} to ${f(h.hi)}; ${pf(h.p)}). ${f(h.share_negative*100,0)}% of individuals showed a negative slope. Reading: <strong>${d}</strong>.`; }
+if (R.H2){ const h=R.H2, g=R.slope_by_group, d=(h.lo>0||h.hi<0)?"a difference between groups":"no clear difference between groups (the interval includes zero)";
+  document.getElementById("h2text").innerHTML = `<strong>H2.</strong> Mean slopes: highly engaged ${f(g["Highly engaged"]?.mean)} (n=${g["Highly engaged"]?.n}); casual/moderate ${f(g["Casual / moderate"]?.mean)} (n=${g["Casual / moderate"]?.n}). Difference ${f(h.diff)} (bootstrap 95% CI ${f(h.lo)} to ${f(h.hi)}; ${pf(h.p)}). Reading: <strong>${d}</strong>.`;
+} else document.getElementById("h2text").textContent = "Not enough respondents in each engagement group to compare yet.";
+const fe=R.fe_controls; if(fe){ const rows=[["Match order","order"],["Match importance (1-5)","imp"],["Favourite team playing","fav"]];
+  document.getElementById("fe").innerHTML = "<tr><th>Variable</th><th>Effect on enjoyment</th><th>95% CI</th><th>p</th></tr>" + rows.map(([n,k])=>`<tr><td>${n}</td><td>${f(fe[k].coef)}</td><td>${f(fe[k].lo)} to ${f(fe[k].hi)}</td><td>${f(fe[k].p,3)}</td></tr>`).join("") + `<tr><td colspan="4" style="color:var(--mute)">Within-person regression, ${fe._n_people} people, ${fe._n_ratings} ratings, cluster-robust SEs.</td></tr>`; }
+if(R.by_position) document.getElementById("pos").innerHTML="<tr><th>Match</th><th>Mean enjoyment</th><th>Ratings (n)</th></tr>"+Object.entries(R.by_position).map(([k,v])=>`<tr><td>${k}</td><td>${f(v.mean)}</td><td>${v.n}</td></tr>`).join("");
+if(R.H1&&R.H1.p_perm!==undefined) document.getElementById("h1text").insertAdjacentHTML("beforeend",` Because n is tiny, a permutation test was also run (p = ${f(R.H1.p_perm,3)}) and a Wilcoxon test (p = ${f(R.H1.p_wilcoxon,3)}); all agree.`);
+if (R.demo) document.getElementById("concTodo").insertAdjacentHTML("beforebegin","");
+</script>
+</body>
+</html>
