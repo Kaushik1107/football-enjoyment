@@ -11,7 +11,7 @@
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
 .wrap{max-width:820px;margin:0 auto;padding:0 20px}
 header{padding:56px 0 24px;border-bottom:1px solid var(--line)}
-h1{font-size:clamp(30px,6vw,46px);line-height:1.15;margin:0 0 12px}
+h1{font-family:system-ui,"Segoe UI",Arial,sans-serif;font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.15;margin:0 0 12px}
 h2{font-size:26px;margin:0 0 6px}h3{font-size:18px;margin:22px 0 6px}
 .sub{color:var(--mute);font-size:18px}
 nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5;font-family:system-ui,sans-serif;font-size:14px}
@@ -38,7 +38,7 @@ footer{padding:30px 0 60px;color:var(--mute);font-family:system-ui,sans-serif;fo
   <div class="num">INDEPENDENT BEHAVIOURAL ECONOMICS PROJECT</div>
   <h1>Does More Football Mean More Enjoyment?</h1>
   <p class="sub">A short empirical investigation of diminishing marginal utility in football viewing.</p>
-  <p class="sub" style="font-size:15px">By <!-- TODO: your name -->[Your name] · <span id="date">[Month Year]</span></p>
+  <p class="sub" style="font-size:15px">By <!-- TODO: your name -->[Sai Kaushik U] · <span id="date">[Month Year]</span></p>
   <div class="banner" id="demoBanner">⚠ DEMONSTRATION DATA. Every number and chart on this page currently comes from synthetic, computer-generated responses used to test the website. They are NOT real findings.</div>
 </div></header>
 <nav><div class="wrap"><a href="#question">1 Question</a><a href="#findings">2 Findings</a><a href="#method">3 Data &amp; method</a><a href="#code">4 Analysis</a><a href="#conclusion">5 Conclusions</a></div></nav>
@@ -56,18 +56,18 @@ footer{padding:30px 0 60px;color:var(--mute);font-family:system-ui,sans-serif;fo
 <section id="findings"><div class="num">02</div><h2>Findings</h2>
 <div class="stats" id="stats"></div>
 <p id="h1text"></p>
-<figure><img src="charts/1_enjoyment_by_order.png" alt="Mean enjoyment by match order with 95% confidence intervals, split by engagement group"><figcaption>Average enjoyment of the 1st, 2nd, … match watched, by engagement group. Bars are 95% confidence intervals; later positions have fewer respondents.</figcaption></figure>
-<figure><img src="charts/2_slope_distribution.png" alt="Histogram of per-person slopes"><figcaption>For each person with two or more rated matches: the change in enjoyment per extra match. Left of zero = enjoyment fell.</figcaption></figure>
+<figure><img src="/1_enjoyment_by_order.png" alt="Mean enjoyment by match order with 95% confidence intervals, split by engagement group"><figcaption>Average enjoyment of the 1st, 2nd, … match watched, by engagement group. Bars are 95% confidence intervals; later positions have fewer respondents.</figcaption></figure>
+<figure><img src="/2_slope_distribution.png" alt="Histogram of per-person slopes"><figcaption>For each person with two or more rated matches: the change in enjoyment per extra match. Left of zero = enjoyment fell.</figcaption></figure>
 <p id="h2text"></p>
-<figure><img src="charts/3_slope_by_engagement.png" alt="Mean slope by engagement group"><figcaption>Average within-person slope for highly engaged fans and casual/moderate viewers, with 95% confidence intervals.</figcaption></figure>
+<figure><img src="/3_slope_by_engagement.png" alt="Mean slope by engagement group"><figcaption>Average within-person slope for highly engaged fans and casual/moderate viewers, with 95% confidence intervals.</figcaption></figure>
 <h3>Average enjoyment by match position</h3><table id="pos"></table>
 <h3>Robustness: controlling for match importance and favourite team</h3>
 <table id="fe"></table>
-<figure><img src="charts/4_viewing_frequency.png" alt="Bar chart of matches watched"><figcaption>How many matches respondents watched in the previous 7 days.</figcaption></figure>
+<figure><img src="/4_viewing_frequency.png" alt="Bar chart of matches watched"><figcaption>How many matches respondents watched in the previous 7 days.</figcaption></figure>
 </section>
 
 <section id="method"><div class="num">03</div><h2>Data and methodology</h2>
-<p><strong>Sample:</strong> <span id="nSample">n</span>. <span class="todo" style="display:inline">TODO: describe honestly how participants were recruited (e.g. school group chat, online football community), dates open, who is not represented.</span></p>
+<p><strong>Sample:</strong> <span id="nSample">n</span>. The survey link was sent to my current football teammates only, so respondents are people I know who play football themselves. They chose whether to answer, and the sample is a convenience sample that is not representative of football fans in general. People who do not play football, and people outside my team, are not represented. The survey was open from [start date] to [end date].</p>
 <p><strong>Questionnaire:</strong> three engagement items (1-5 agreement), the number of matches watched in the previous 7 days, and for each match in order watched (up to five): enjoyment (1-10), importance (1-5) and whether the respondent's favourite team played. Anonymous; no names or emails collected. <a href="survey_questions.md">Full questionnaire</a>.</p>
 <p><strong>Variables:</strong> <em>order</em> = position of the match in the respondent's week; <em>enjoyment</em> = self-rated 1-10 (proxy for marginal utility); <em>engagement</em> = mean of three items, "highly engaged" ≥ <span id="cut">4.0</span> (set before analysis).</p>
 <p><strong>Cleaning:</strong> exact duplicates removed; respondents with no matches have no ratings; ratings outside 1-10 dropped. Full log in <a href="exclusion_log.txt">exclusion_log.txt</a>.</p>
@@ -77,9 +77,9 @@ footer{padding:30px 0 60px;color:var(--mute);font-family:system-ui,sans-serif;fo
 </section>
 
 <section id="code"><div class="num">04</div><h2>Reproducible analysis</h2>
-<p>All statistics and charts on this page are produced by one script. To reproduce: <code>pip install pandas numpy scipy matplotlib</code> then <code>python analysis/analyze.py data/responses.csv</code>.</p>
+<p>All statistics and  on this page are produced by one script. To reproduce: <code>pip install pandas numpy scipy matplotlib</code> then <code>python analyze.py data/responses.csv</code>.</p>
 <ul><li>Mean enjoyment by match order with t-based 95% CIs.</li><li>Per-person OLS slope of enjoyment on match order; one-sample t-test and Wilcoxon signed-rank test against 0.</li><li>H2: Welch t-test, Mann-Whitney test and bootstrap CI (5,000 resamples) for the difference in mean slopes between groups. With so few people, H1 is also checked with a sign-flip permutation test.</li><li>Robustness: person fixed-effects regression with cluster-robust standard errors, controlling for importance and favourite-team flag.</li></ul>
-<p><a href="analysis/analyze.py">analysis/analyze.py</a> · <a href="https://github.com/">[link to your GitHub repository]</a></p>
+<p><a href="analyze.py">analyze.py</a> · <a href="https://github.com/">[link to your GitHub repository]</a></p>
 </section>
 
 <section id="conclusion"><div class="num">05</div><h2>Conclusions and implications</h2>
